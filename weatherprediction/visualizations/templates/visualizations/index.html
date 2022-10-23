@@ -1,0 +1,36 @@
+{% load static %}
+{% load plotly_dash %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecast</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'visualizations/css/styles.css' %}">
+</head>
+
+<body>
+
+<div id="navigation">
+    <a href="{% url 'forecast:forecast' %}">
+        <div id="title-section">
+            <img id="logo" src="{% static 'logo.png' %}">
+            <p id="title">SeattleWeatherForecast</p>
+        </div>
+    </a>
+
+    <div id="link-section">
+        <div class="nav-buttons">
+            <p><a href="{% url 'visualizations:visualizations' %}">Visualizations</a></p>
+        </div>
+    </div>
+</div>
+
+{% plotly_header %}
+
+<div class="plot-graphs">
+{% plotly_direct name="Visualizations" %}
+</div>
+
+{% plotly_footer %}
+
+</body>
+</html>

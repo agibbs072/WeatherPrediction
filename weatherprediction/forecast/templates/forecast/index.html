@@ -1,0 +1,124 @@
+{% load static %}
+{% load plotly_dash %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecast</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forecast/css/styles.css' %}">
+</head>
+
+<body>
+
+<div id="navigation">
+    <a href="{% url 'forecast:forecast' %}">
+        <div id="title-section">
+            <img id="logo" src="{% static 'logo.png' %}">
+            <p id="title">SeattleWeatherForecast</p>
+        </div>
+    </a>
+
+    <div id="link-section">
+        <div class="nav-buttons">
+            <p><a href="{% url 'visualizations:visualizations' %}">Visualizations</a></p>
+        </div>
+    </div>
+</div>
+
+
+<div id="main-content">
+    <div id="datetime">
+    </div>
+
+    <div id="forecast-content">
+        {% for day in week %}
+        <div class="day-content">
+            <p>{{ day.name }}</p>
+            <img class="conditions" src="{% static day.condition %}">
+            <div class="temperatures">
+                <p class="high">{{ day.temp_max }}</p>
+                <p class="low">{{ day.temp_min }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="settings-content">
+        <div id="legend-content">
+            <div id="legend-title"><p>Legend</p></div>
+
+            <div id="legend-condition-name-content">
+                <div id="legend-condition-content">
+                    <img class="legend-condition" src="{% static 'forecast/images/sun.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/fog.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/drizzle.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/rain.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/snow.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/high.png' %}">
+                    <img class="legend-condition" src="{% static 'forecast/images/low.png' %}">
+                </div>
+
+                <div id="legend-condition-name">
+                    <p>Sun</p>
+                    <p>Fog</p>
+                    <p>Drizzle</p>
+                    <p>Rain</p>
+                    <p>Snow</p>
+                    <p>high temp</p>
+                    <p>low temp</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tool-content">
+            <div id="tool-title"><p>Tools</p></div>
+            <div id="temp-button-content">
+                <div class="temp-button" id="celsius-button" onclick="to_celsius()"><p>Celsius</p></div>
+                <div class="temp-button" id="fahr-button" onclick="to_fahrenheit()"><p>Fahrenheit</p></div>
+            </div>
+            <div id="date-picker-content">
+                <p>Forecast a single date</p>
+                <input type="date" id="date-picker">
+                <button>Submit</button>
+            </div>
+        </div>
+
+
+        <div id="custom-forecast-content">
+            <div id="custom-forecast-title"><p>Custom Forecast</p></div>
+            <div id="custom-forecast">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<script src="{% static 'forecast/js/scripts.js' %}"></script>
+<script>
+$("button").click(function(e) {
+    let d = document.getElementById("date-picker");
+    let date = d.value;
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "custom_forecast",
+        headers: {
+            "X-CSRFToken": getCookie("csrftoken")
+        },
+        data: {
+            year: date.slice(0, 4),
+            month: date.slice(5, 7),
+            day: date.slice(8, 10)
+        },
+        success: function(result) {
+            // insert html into the div with the result
+            buildCustomForecast(result);
+        }
+    });
+});
+</script>
+</body>
+</html>

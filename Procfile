@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath weatherprediction weatherprediction.wsgi

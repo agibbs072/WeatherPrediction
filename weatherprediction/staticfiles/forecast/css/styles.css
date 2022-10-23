@@ -1,0 +1,195 @@
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+p{
+    font-family: Verdana;
+}
+
+
+/***************************************************************************************/
+
+/** Navigation **/
+
+#navigation{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+#title-section{
+    display: flex;
+}
+
+#logo{
+    height: 3em;
+    width: 4em;
+}
+
+#title{
+    font-family: Verdana;
+    font-size: 1.3em;
+}
+
+#link-section{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-buttons{
+    font-size: 1.3em;
+    margin: 0em 3em 0em 0em;
+    cursor: pointer;
+}
+
+
+
+/***************************************************************************************/
+
+#main-content{
+    //background-color: rgb(85, 135, 200);
+    margin: 2em 0em 0em 0em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/***************************************************************************************/
+
+#datetime{
+    margin: 0em 0em 1em 0em;
+}
+
+#settings-content{
+    display: flex;
+    margin: 4em 0em 0em 0em;
+}
+
+#legend-content{
+    display: flex;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 35%;
+    flex-direction: column;
+    align-items: center;
+    //padding: 1em 1em 1em 1em;
+    width: 15em;
+    margin: 0em 0em 1em 0em;
+}
+
+#legend-condition-name-content{
+    display: flex;
+    margin: 0em 0em 1em 0em;
+}
+
+#legend-condition-content{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em 1em 1em;
+}
+
+.legend-condition{
+    height: 2.2em;
+    width: 3.2em;
+}
+
+#legend-condition-name{
+    //display: flex;
+    //flex-direction: column;
+}
+
+#tool-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 35%;
+    margin: 0em 2em 0em 2em;
+    width: 17em;
+    height: 14em;
+}
+
+#temp-button-content{
+    display: flex;
+}
+
+.temp-button{
+    color: rgb(255, 255, 255);
+    background-color: rgb(85, 135, 200);
+    border: 1px solid rgb(235, 235, 235);
+    cursor: pointer;
+    text-align: center;
+    //border-radius: 50%;
+    width: 6em;
+    //margin: 0em 1em 0em 1em;
+    //height: 1.5em;
+}
+
+#fahr-button{
+    background-color: rgb(180, 180, 180);
+}
+
+#date-picker{
+    margin: 1em 0em 0em 0em;
+    width: 11em;
+}
+
+
+#custom-forecast-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 35%;
+    margin: 0em 1em 0em 1em;
+    width: 15em;
+    height: 14em;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+/***************************************************************************************/
+
+#forecast-content{
+    display: flex;
+    //padding: 5em 8em 5em 8em;
+    //border-radius: 100px;
+    background-color: rgb(255, 255, 255);
+    //border: 1px solid rgb(245, 245, 245);
+    flex-wrap: wrap;
+}
+
+.day-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 35%;
+    margin: 0em 1em 0em 1em;
+    width: 8em;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.conditions{
+    height: 3em;
+    width: 4em;
+}
+
+.temperatures{
+    display: flex;
+    margin: 0.5em 0em 0.5em 0em;
+}
+
+.high{
+    color: rgb(255, 0, 0);
+    margin: 0em 0.5em 0em 0em;
+}
+
+.low{
+    color: rgb(0, 0, 255);
+    margin: 0em 0.5em 0em 0em;
+}
+
+
+
+/***************************************************************************************/
+
+
