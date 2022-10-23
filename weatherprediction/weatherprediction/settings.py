@@ -18,7 +18,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = [
-    "seamusweatherforecast.herokuapp.com",
+    "seattleweatherprediction.herokuapp.com",
     "127.0.0.1"
 ]
 
