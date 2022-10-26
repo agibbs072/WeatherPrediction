@@ -106,7 +106,7 @@ $("button").click(function(e) {
         type: "POST",
         url: "custom_forecast",
         headers: {
-            "X-CSRFToken": getCookie("csrftoken")
+            csrfmiddlewaretoken: '{{ csrf_token }}'
         },
         data: {
             year: date.slice(0, 4),
